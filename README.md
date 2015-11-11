@@ -100,7 +100,7 @@ cd ${mnt}
 cat ~/Debian-3.18.5-kirkwood-tld-1-rootfs-bodhi.tar.bz2 | bunzip2 | tar x
 ```
 
-Edit `/etc/fstab` to use `ext3` as the rootfs filesystem.  The `fstab` entry should look like so:
+Edit `${mnt}/etc/fstab` to use `ext3` as the rootfs filesystem.  The `fstab` entry should look like so:
 
 ```
 /dev/root / ext3 noatime,errors=remount-ro 0 1
