@@ -56,6 +56,8 @@ passwd
 
 For those without access to `sfdisk` and `resize2fs`, I have also provided a 4GB disk image packaged in a `.zip` file.
 
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
+
 ## Producedure I Used to Modify bodhi's rootfs
 
 I performed the following steps (on a machine running Debian `jessie`) to prepare the rootfs and disk images.
