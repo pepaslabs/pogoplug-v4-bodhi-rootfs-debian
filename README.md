@@ -152,6 +152,12 @@ apt-get update
 apt-get dist-upgrade
 ```
 
+Remove unneeded packages:
+
+```
+apt-get autoremove
+```
+
 Remove cached packages:
 
 ```
