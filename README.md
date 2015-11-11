@@ -176,7 +176,13 @@ Clear out `/etc/udev/rules.d/70-persistent-net.rules`:
 echo -n > /etc/udev/rules.d/70-persistent-net.rules
 ```
 
-Set root's password to be the empty string.  Manually edit `/etc/shadow` so that root's password hash is `s8OebdUUcHNvg`.  It should look something like this:
+Set root's password to be the empty string.  Edit `/etc/shadow` so that root's password hash is `s8OebdUUcHNvg`.
+
+```
+nano /etc/shadow
+```
+
+`root`'s entry should look something like this:
 
 ```
 root:s8OebdUUcHNvg:15910:0:99999:7:::
