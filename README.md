@@ -297,14 +297,14 @@ Unpack the tarball:
 ```
 cd ${mnt}
 cat ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-rootfs.tar.gz | gunzip | tar x
-cd
 ```
 
 Unmount the SD card:
 
 ```
-sync
+cd
 umount ${mnt}
+sync
 ```
 
 Determine the exact size of the disk image:
