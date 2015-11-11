@@ -343,7 +343,7 @@ Create the disk image:
 dd if=/dev/${dev} bs=512 count=987350 | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.dd.gz
 ```
 
-### Create the 4GB-compatible disk image
+### Create the 4GB disk image
 
 Zero out the first 4,000,000,000 bytes of the SD card:
 
