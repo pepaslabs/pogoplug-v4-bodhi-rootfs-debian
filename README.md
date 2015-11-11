@@ -40,6 +40,11 @@ Now stick it in a pogoplug and boot it!
 
 **Don't forget to set a root password after logging in!**
 
+```
+ssh root@192.168.X.XXX
+passwd
+```
+
 ## Producedure I Used to Modify bodhi's rootfs
 
 I performed the following steps (on a machine running Debian `jessie`) to prepare the rootfs and disk images.
