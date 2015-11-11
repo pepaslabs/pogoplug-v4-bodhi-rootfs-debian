@@ -254,6 +254,11 @@ Create the rootfs tarball:
 cd ${mnt}
 tarball_date=$(date +%Y%m%d)
 tar c . | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-rootfs.tar.gz
+```
+
+Unmount the SD card:
+
+```
 cd
 umount ${mnt}
 ```
