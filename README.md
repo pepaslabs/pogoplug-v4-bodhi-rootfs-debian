@@ -323,18 +323,18 @@ Disk /dev/sdf: 1021 cylinders, 245 heads, 62 sectors/track
 Units: sectors of 512 bytes, counting from 0
 
    Device Boot    Start       End   #sectors  Id  System
-/dev/sdf1   *         1   1032919    1032919  83  Linux
+/dev/sdf1   *         1    987349     987349  83  Linux
 /dev/sdf2             0         -          0   0  Empty
 /dev/sdf3             0         -          0   0  Empty
 /dev/sdf4             0         -          0   0  Empty
 ```
 
-Here, we need to copy exactly `(1 + 1032919) * 512` bytes of the disk in order to make a usable disk image.  We will tell `dd` to copy 1032920 blocks of 512 bytes.
+Here, we need to copy exactly `(1 + 987349) * 512` bytes of the disk in order to make a usable disk image.  We will tell `dd` to copy 987350 blocks of 512 bytes.
 
 Create the disk image:
 
 ```
-dd if=/dev/${dev} bs=512 count=1032920 | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.dd.gz
+dd if=/dev/${dev} bs=512 count=987350 | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.dd.gz
 ```
 
 Generate an `md5sums` file:
