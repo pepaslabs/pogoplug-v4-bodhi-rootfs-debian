@@ -7,7 +7,7 @@ User 'bodhi' at http://forum.doozan.com has prepared a Debian rootfs tarball for
 
 However, his release still requires a few additional steps in order to prepare it for the Pogoplug.
 
-This github repository aims to provide versions of his rootfs which are fully ready to be used with Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
+This github repository aims to provide versions of his rootfs (and disk images) which are fully ready to be used with Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
 
 ## Using the disk image
 
