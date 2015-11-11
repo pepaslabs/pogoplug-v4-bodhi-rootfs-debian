@@ -100,16 +100,15 @@ cd ${mnt}
 cat ~/Debian-3.18.5-kirkwood-tld-1-rootfs-bodhi.tar.bz2 | bunzip2 | tar x
 ```
 
-Edit `${mnt}/etc/fstab` to use `ext3` as the rootfs filesystem.
+Create a basic `${mnt}/etc/fstab` which uses `ext3` as the rootfs filesystem:
 
 ```
-vim ${mnt}/etc/fstab
-```
-
-The `fstab` entry should look like so:
-
-```
-/dev/root / ext3 noatime,errors=remount-ro 0 1
+cat > ${mnt}/etc/fstab << 'EOF'
+# /etc/fstab: static file system information.
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+/dev/root       /               ext3    noatime,errors=remount-ro 0 1
+EOF
 ```
 
 Setup the kernel image for the bootloader:
