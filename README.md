@@ -201,7 +201,7 @@ Remove the ssh host keys:
 rm -f /etc/ssh/ssh_host*
 ```
 
-Add the following to `/etc/rc.local` to have the ssh host keys regenerated upon next boot:
+Add the following to `/etc/rc.local` to have the ssh host keys regenerated upon next boot.  **NOTE**: Make sure you add this section **before** the line which says `exit 0`:
 
 (thanks to https://forums.opensuse.org/showthread.php/477727-Regenerate-SSH-config-after-virtual-machine-cloning)
 
