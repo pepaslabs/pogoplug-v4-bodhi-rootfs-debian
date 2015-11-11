@@ -9,9 +9,38 @@ However, his release still requires a few additional steps in order to prepare i
 
 This github repository aims to provide versions of his rootfs which are fully ready to be used with Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
 
+## Using the disk image
+
+Write the disk image to the SD card at `/dev/sdf`:
+
+```
+dev=sdf
+cat ~/Debian-jessie-3.18.5-pogoplug-v4-*-disk-image.dd.gz | gunzip > /dev/${dev}
+```
+
+Grow the SD card partition to take up the entire disk:
+
+```
+sfdisk /dev/${dev} << 'EOF'
+,,,*
+EOF
+```
+
+Grow the filesystem:
+
+```
+e2fsck -f /dev/${dev}1
+resize2fs /dev/${dev}1
+sync
+```
+
+Now stick it in a pogoplug and boot it!
+
+**Don't forget to set a root password after logging in!**
+
 ## Producedure I Used to Modify bodhi's rootfs
 
-I performed the following steps to prepare the rootfs and disk images.
+I performed the following steps (on a machine running Debian `jessie`) to prepare the rootfs and disk images.
 
 All of these commands should be run as **root**.
 
@@ -150,3 +179,120 @@ Don't forget to make sure `/etc/rc.local` is set executable:
 chmod +x /etc/rc.local
 ```
 
+Shutdown the pogoplug and remove the SD card:
+
+```
+sync
+poweroff
+```
+
+### Create the redistributable rootfs tarball
+
+Insert the SD card back into your Debian `jessie` PC.
+
+Double-check that your `${dev}` env var is still correct:
+
+```
+fdisk -l /dev/${dev}
+```
+
+Mount the SD card:
+
+```
+mount /dev/${dev}1 ${mnt}
+```
+
+Remove root's `.bash_history` file:
+
+```
+rm ${mnt}/root/.bash_history
+```
+
+Create the rootfs tarball:
+
+```
+cd ${mnt}
+tarball_date=$(date +%Y%m%d)
+tar c . | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-rootfs.tar.gz
+cd
+umount ${mnt}
+```
+
+### Create the redistributable (minimal) disk image
+
+Zero out the first 512,000,000 bytes of the SD card:
+
+```
+dd if=/dev/zero of=/dev/${dev} bs=1MB count=512
+```
+
+Create a bootable partition of (at least) 480MiB on the SD card (`sfdisk` will round up to the nearest cylinder):
+
+```
+sfdisk -uM /dev/${dev} << 'EOF'
+,480,,*
+EOF
+```
+
+Format the partition:
+
+```
+mke2fs -j -L rootfs /dev/${dev}1
+```
+
+Mount the SD card:
+
+```
+mount /dev/${dev}1 ${mnt}
+```
+
+Unpack the tarball:
+
+```
+cd ${mnt}
+cat ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-rootfs.tar.gz | gunzip | tar x
+cd
+```
+
+Unmount the SD card:
+
+```
+sync
+umount ${mnt}
+```
+
+Determine the exact size of the disk image:
+
+```
+sfdisk -l -uS /dev/${dev}
+```
+
+Example output:
+
+```
+# sfdisk -l -uS /dev/${dev}
+
+Disk /dev/sdf: 1021 cylinders, 245 heads, 62 sectors/track
+Units: sectors of 512 bytes, counting from 0
+
+   Device Boot    Start       End   #sectors  Id  System
+/dev/sdf1   *         1   1032919    1032919  83  Linux
+/dev/sdf2             0         -          0   0  Empty
+/dev/sdf3             0         -          0   0  Empty
+/dev/sdf4             0         -          0   0  Empty
+```
+
+Here, we need to copy exactly `(1 + 1032919) * 512` bytes of the disk in order to make a usable disk image.  We will tell `dd` to copy 1032920 blocks of 512 bytes.
+
+Create the disk image:
+
+```
+dd if=/dev/${dev} bs=512 count=1032920 | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.dd.gz
+```
+
+Generate an `md5sums` file:
+
+```
+cd
+md5sum *rootfs.tar.gz *disk-image.dd.gz > ~/md5sums
+```
