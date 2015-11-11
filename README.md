@@ -142,7 +142,7 @@ ssh root@192.168.X.XXX
 Comment out the `deb-src` entry in `/etc/sources.list` (speeds up apt a bit):
 
 ```
-sed -i'' 's/^deb-src/#deb-src/' sources.list
+sed -i'' 's/^deb-src/#deb-src/' /etc/apt/sources.list
 ```
 
 Install the latest security updates:
