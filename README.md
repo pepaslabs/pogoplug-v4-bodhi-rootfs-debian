@@ -3,6 +3,7 @@ bodhi's Debian rootfs, prepared specifically for Pogoplug V4 devices.
 
 * [Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz)
 * [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
+* [md5sums](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/md5sums)
 
 ## Rationale
 
