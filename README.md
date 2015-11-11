@@ -1,10 +1,10 @@
 # pogoplug-v4-bodhi-rootfs-debian
 bodhi's Debian rootfs, prepared specifically for Pogoplug V4 devices.
 
-* [Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz)
-* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
-* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
-* [md5sums](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/md5sums)
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz)
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
+* [md5sums](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/md5sums)
 
 ## Rationale
 
@@ -56,7 +56,7 @@ passwd
 
 For those without access to `sfdisk` and `resize2fs`, I have also provided a 4GB disk image packaged in a `.zip` file.
 
-* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
 
 See this page for some tips on writing the disk image to an SD card on Windows or Mac: http://elinux.org/RPi_Easy_SD_Card_Setup
 
