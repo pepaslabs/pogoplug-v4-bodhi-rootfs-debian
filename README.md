@@ -131,7 +131,13 @@ sync
 
 ### Preparing the rootfs for distribution
 
-Insert the SD card into a Pogoplug and **boot it**.
+Insert the SD card into a Pogoplug, **boot it**, and ssh into it:
+
+```
+ssh root@192.168.X.XXX
+```
+
+(The root password for bodhi's rootfs is **root**).
 
 Comment out the `deb-src` entry in `/etc/sources.list` (speeds up apt a bit):
 
