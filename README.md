@@ -413,5 +413,5 @@ rm Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.img
 
 ```
 cd
-md5sum *rootfs.tar.gz *disk-image.dd.gz *disk-image.4GB.dd.zip > ~/md5sums
+md5sum *rootfs.tar.gz *disk-image.dd.gz *disk-image.4GB.dd.zip > md5sums
 ```
