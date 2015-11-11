@@ -73,6 +73,11 @@ EOF
 
 ```
 mke2fs -j -L rootfs /dev/${dev}1
+```
+
+Mount the SD card:
+
+```
 mount /dev/${dev}1 ${mnt}
 ```
 
