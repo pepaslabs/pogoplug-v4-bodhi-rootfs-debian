@@ -81,7 +81,7 @@ Mount the SD card:
 mount /dev/${dev}1 ${mnt}
 ```
 
-Download bodhi's (tarball if you haven't already):
+Download bodhi's tarball (if you haven't already):
 
 ```
 if [ ! -e ~/Debian-3.18.5-kirkwood-tld-1-rootfs-bodhi.tar.bz2 ]
