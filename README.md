@@ -36,6 +36,8 @@ sync
 
 Now stick it in a pogoplug and boot it!
 
+`root`'s password is set to the empty string.  When `ssh` prompts you for a password, just hit enter.
+
 **Don't forget to set a root password after logging in!**
 
 ## Producedure I Used to Modify bodhi's rootfs
