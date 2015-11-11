@@ -269,6 +269,7 @@ Zero out the first 512,000,000 bytes of the SD card:
 
 ```
 dd if=/dev/zero of=/dev/${dev} bs=1MB count=512
+sync
 ```
 
 Create a bootable partition of (at least) 480MiB on the SD card (`sfdisk` will round up to the nearest cylinder):
