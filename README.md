@@ -3,7 +3,7 @@ bodhi's Debian rootfs, prepared specifically for Pogoplug V4 devices.
 
 ## Rationale
 
-User 'bodhi' at http://forum.doozan.com has prepared a Debian rootfs tarball for use with many small ARM machines.
+User 'bodhi' at http://forum.doozan.com has prepared a Debian rootfs tarball for use with many small ARM machines (see this thread: http://forum.doozan.com/read.php?2,12096).
 
 However, his release still requires a few additional steps in order to prepare it for the Pogoplug.
 
