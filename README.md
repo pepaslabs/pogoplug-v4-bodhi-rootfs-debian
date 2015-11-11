@@ -3,6 +3,7 @@ bodhi's Debian rootfs, prepared specifically for Pogoplug V4 devices.
 
 * [Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz)
 * [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
 * [md5sums](https://github.com/cellularmitosis/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/md5sums)
 
 ## Rationale
@@ -50,6 +51,10 @@ passwd
 ```
 
 **Note**: it may take a minute or two for `ssh` to start (it has to regenerate a new set of host keys).
+
+## Windows and Mac users
+
+For those without access to `sfdisk` and `resize2fs`, I have also provided a 4GB disk image packaged in a `.zip` file.
 
 ## Producedure I Used to Modify bodhi's rootfs
 
@@ -398,9 +403,10 @@ Here, we need to copy exactly `(1 + 7792469) * 512` bytes of the disk in order t
 Create the disk image:
 
 ```
-dd if=/dev/${dev} bs=512 count=7792470 > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd
-zip ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd.zip ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd
-rm ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd
+cd
+dd if=/dev/${dev} bs=512 count=7792470 > Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.img
+zip Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.img.zip Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.img
+rm Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.img
 ```
 
 ### Generate an `md5sums` file:
