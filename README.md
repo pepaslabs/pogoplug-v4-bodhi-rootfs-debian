@@ -343,7 +343,65 @@ Create the disk image:
 dd if=/dev/${dev} bs=512 count=987350 | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.dd.gz
 ```
 
-Generate an `md5sums` file:
+### Create the 4GB-compatible disk image
+
+Zero out the first 4,000,000,000 bytes of the SD card:
+
+```
+dd if=/dev/zero of=/dev/${dev} bs=1MB count=4000
+sync
+```
+
+Create a bootable partition of (at least) 3800MiB on the SD card (`sfdisk` will round up to the nearest cylinder):
+
+```
+sfdisk -uM /dev/${dev} << 'EOF'
+,3800,,*
+EOF
+```
+
+Format the partition, mount the SD card, unpack the tarball, then unmount the SD card:
+
+```
+mke2fs -j -L rootfs /dev/${dev}1
+mount /dev/${dev}1 ${mnt}
+cd ${mnt}
+cat ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-rootfs.tar.gz | gunzip | tar x
+cd
+umount ${mnt}
+sync
+```
+
+Determine the exact size of the disk image:
+
+```
+sfdisk -l -uS /dev/${dev}
+```
+
+Example output:
+
+```
+# sfdisk -l -uS /dev/${dev}
+
+Disk /dev/sdf: 1021 cylinders, 245 heads, 62 sectors/track
+Units: sectors of 512 bytes, counting from 0
+
+   Device Boot    Start       End   #sectors  Id  System
+/dev/sdf1   *         1   7792469    7792469  83  Linux
+/dev/sdf2             0         -          0   0  Empty
+/dev/sdf3             0         -          0   0  Empty
+/dev/sdf4             0         -          0   0  Empty
+```
+
+Here, we need to copy exactly `(1 + 7792469) * 512` bytes of the disk in order to make a usable disk image.  We will tell `dd` to copy 7792470 blocks of 512 bytes.
+
+Create the disk image:
+
+```
+dd if=/dev/${dev} bs=512 count=7792470 | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd.gz
+```
+
+### Generate an `md5sums` file:
 
 ```
 cd
