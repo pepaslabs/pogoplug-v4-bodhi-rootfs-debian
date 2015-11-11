@@ -261,6 +261,7 @@ Unmount the SD card:
 ```
 cd
 umount ${mnt}
+sync
 ```
 
 ### Create the redistributable (minimal) disk image
