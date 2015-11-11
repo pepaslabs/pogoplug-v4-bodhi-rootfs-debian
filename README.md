@@ -82,7 +82,7 @@ sync
 
 Insert the SD card into a Pogoplug and **boot it**.
 
-Comment out the `deb-src` entry in /etc/sources.list (speeds up apt a bit):
+Comment out the `deb-src` entry in `/etc/sources.list` (speeds up apt a bit):
 
 ```
 sed -i'' 's/^deb-src/#deb-src/' sources.list
