@@ -14,7 +14,7 @@ However, his release still requires a few additional steps in order to prepare i
 
 This github repository aims to provide versions of his rootfs (and disk images) which are fully ready to be used with Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
 
-## Using the disk image
+## Linux users: Using the disk image
 
 Write the disk image to the SD card at `/dev/sdf`:
 
@@ -52,7 +52,7 @@ passwd
 
 **Note**: it may take a minute or two for `ssh` to start (it has to regenerate a new set of host keys).
 
-## Windows and Mac users
+## Windows and Mac users: Using the disk image
 
 For those without access to `sfdisk` and `resize2fs`, I have also provided a 4GB disk image packaged in a `.zip` file.
 
