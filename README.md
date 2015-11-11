@@ -9,11 +9,13 @@ However, his release still requires a few additional steps in order to prepare i
 
 This github repository aims to provide versions of his rootfs which are fully ready to be used with Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
 
-## Producedure
+## Producedure I Used to Modify bodhi's rootfs
 
 I performed the following steps to prepare the rootfs and disk images.
 
-These instructions are based on the following env vars.  Adjust as needed for your situation.
+All of these commands should be run as **root**.
+
+These instructions are based on the following env vars.  Adjust as needed for your situation:
 
 ```
 # SD card device:
@@ -62,25 +64,89 @@ Edit `/etc/fstab` to use `ext3` as the rootfs filesystem.  The `fstab` entry sho
 Setup the kernel image for the bootloader:
 
 ```
-cd boot
+cd ${mnt}/boot
 cp -a zImage-3.18.5-kirkwood-tld-1  zImage.fdt
 cat dts/kirkwood-pogoplug_v4.dtb  >> zImage.fdt
 mv uImage uImage.orig
 mkimage -A arm -O linux -T kernel -C none -a 0x00008000 -e 0x00008000 -n Linux-3.18.5-kirkwood-tld-1 -d zImage.fdt uImage
+```
+
+Unmount the SD card:
+
+```
+umount ${mnt}
 sync
 ```
 
-At this point the rootfs should be bootable by a Pogoplug.
-
-
 ### Preparing the rootfs for distribution
 
-Install the latest secyrity updates.  Reboot to be sure everything still works.
+Insert the SD card into a Pogoplug and **boot it**.
+
+Comment out the `deb-src` entry in /etc/sources.list (speeds up apt a bit):
+
+```
+sed -i'' 's/^deb-src/#deb-src/' sources.list
+```
+
+Install the latest security updates:
 
 ```
 apt-get update
 apt-get dist-upgrade
-reboot
 ```
 
+Remove cached packages:
+
+```
+apt-get clean
+```
+
+Restore root's `~/.profile`:
+
+```
+cp -a /usr/share/base-files/profile /root/.profile
+```
+
+Clear out `/etc/udev/rules.d/70-persistent-net.rules`:
+
+```
+echo -n > /etc/udev/rules.d/70-persistent-net.rules
+```
+
+Set root's password to be the empty string.  Manually edit `/etc/shadow` so that root's password hash is `s8OebdUUcHNvg`.  It should look something like this:
+
+```
+root:s8OebdUUcHNvg:15910:0:99999:7:::
+```
+
+Edit `/etc/ssh/sshd_config` to allow root login with no password:
+
+```
+PermitRootLogin yes
+PermitEmptyPasswords yes
+```
+
+Remove the ssh host keys:
+
+```
+rm -f /etc/ssh/ssh_host*
+```
+
+Add the following to `/etc/rc.local` to have the ssh host keys regenerated upon next boot:
+
+(thanks to https://forums.opensuse.org/showthread.php/477727-Regenerate-SSH-config-after-virtual-machine-cloning)
+
+```
+if [ ! -e /etc/ssh/ssh_host_rsa_key ]
+then
+    dpkg-reconfigure openssh-server
+    /etc/init.d/ssh restart || true
+fi
+```
+
+Don't forget to make sure `/etc/rc.local` is set executable:
+
+```
+chmod +x /etc/rc.local
+```
 
