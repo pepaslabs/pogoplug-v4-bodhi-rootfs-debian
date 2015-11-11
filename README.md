@@ -51,7 +51,7 @@ I performed the following steps (on a machine running Debian `jessie`) to prepar
 
 All of these commands should be run as **root**.
 
-These instructions are based on the following env vars.  Adjust as needed for your situation:
+Set the following env vars (adjust as needed for your situation):
 
 ```
 # SD card device:
