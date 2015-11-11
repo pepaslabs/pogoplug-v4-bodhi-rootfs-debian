@@ -36,7 +36,7 @@ sync
 
 Now stick it in a pogoplug and boot it!
 
-`root`'s password is set to the empty string.  When `ssh` prompts you for a password, just hit enter.
+`root`'s password is set to the empty string.  `ssh` shouldn't prompt you for a password.
 
 **Don't forget to set a root password after logging in!**
 
