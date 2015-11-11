@@ -1,5 +1,5 @@
 # pogoplug-v4-bodhi-rootfs-debian
-bodhi's Debian rootfs, prepared specifically for the Pogoplug.
+bodhi's Debian rootfs, prepared specifically for Pogoplug V4 devices.
 
 ## Rationale
 
