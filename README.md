@@ -7,7 +7,7 @@ Also packaged as a raw disk image (see below instructions about growing the part
 
 * [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
 
-If you can't grow the partition after writing the SD card, here's the above packaged as a 4GB raw disk image:
+If you can't grow the partition after writing the SD card (e.g. Windows and Mac users), here's the above packaged as a 4GB raw disk image:
 
 * [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
 
