@@ -1,5 +1,5 @@
 # pogoplug-v4-bodhi-rootfs-debian
-bodhi's Debian rootfs, prepared specifically for Pogoplug V4 devices.
+bodhi's Debian rootfs, prepared specifically for Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
 
 * [Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz)
 * [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
