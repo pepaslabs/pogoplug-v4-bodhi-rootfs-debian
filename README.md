@@ -45,6 +45,8 @@ ssh root@192.168.X.XXX
 passwd
 ```
 
+**Note**: it may take a minute or two for `ssh` to start (it has to regenerate a new set of host keys).
+
 ## Producedure I Used to Modify bodhi's rootfs
 
 I performed the following steps (on a machine running Debian `jessie`) to prepare the rootfs and disk images.
