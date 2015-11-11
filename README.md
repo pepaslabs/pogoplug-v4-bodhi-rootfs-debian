@@ -398,12 +398,14 @@ Here, we need to copy exactly `(1 + 7792469) * 512` bytes of the disk in order t
 Create the disk image:
 
 ```
-dd if=/dev/${dev} bs=512 count=7792470 | gzip > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd.gz
+dd if=/dev/${dev} bs=512 count=7792470 > ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd
+zip ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd.zip ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd
+rm ~/Debian-jessie-3.18.5-pogoplug-v4-${tarball_date}-disk-image.4GB.dd
 ```
 
 ### Generate an `md5sums` file:
 
 ```
 cd
-md5sum *rootfs.tar.gz *disk-image.dd.gz > ~/md5sums
+md5sum *rootfs.tar.gz *disk-image.dd.gz *disk-image.4GB.dd.zip > ~/md5sums
 ```
