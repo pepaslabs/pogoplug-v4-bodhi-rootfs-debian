@@ -124,6 +124,7 @@ mkimage -A arm -O linux -T kernel -C none -a 0x00008000 -e 0x00008000 -n Linux-3
 Unmount the SD card:
 
 ```
+cd
 umount ${mnt}
 sync
 ```
