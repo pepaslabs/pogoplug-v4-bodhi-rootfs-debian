@@ -23,6 +23,8 @@ This github repository aims to provide versions of his rootfs (and disk images) 
 
 ## Linux users: Using the disk image
 
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
+
 Write the disk image to the SD card at `/dev/sdf`:
 
 ```
