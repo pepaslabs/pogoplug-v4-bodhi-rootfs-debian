@@ -13,7 +13,9 @@ If you can't grow the partition after writing the SD card (e.g. Windows and Mac 
 
 * [md5sums](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/md5sums)
 
-**UPDATE** If you `apt-get dist-upgrade` from `jessie` to `stretch` and it bricks your 'plug, it is probably due to `fsck` not being able to find `/dev/root`:
+## Issues with upgrading from `jessie` to `stretch`
+
+If you `apt-get dist-upgrade` from `jessie` to `stretch` and it "bricks" your 'plug, it is probably due to `fsck` not being able to find `/dev/root`:
 
 ```
 [....] Checking file systems...fsck from util-linux 2.29.2
@@ -28,6 +30,8 @@ Give root password for maintenance
 ```
 
 You can fix this by placing your SD card into a laptop and editing `/etc/fstab`.  Replace `/dev/root` with `/dev/mmcblk0p1` (if you boot from SD card).
+
+If you find you are no longer allowed to log in via ssh as root, you'll need to edit your `/etc/ssh/sshd_config` and change `PermitRootLogin` to `yes`.
 
 
 ## Rationale
