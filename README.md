@@ -31,8 +31,6 @@ Give root password for maintenance
 
 You can fix this by placing your SD card into a laptop and editing `/etc/fstab`.  Replace `/dev/root` with `/dev/mmcblk0p1` (if you boot from SD card).
 
-If you find you are no longer allowed to log in via ssh as root, you'll need to edit your `/etc/ssh/sshd_config` and change `PermitRootLogin` to `yes`.
-
 
 ## Rationale
 
