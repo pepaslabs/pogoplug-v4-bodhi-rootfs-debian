@@ -1,17 +1,22 @@
 # pogoplug-v4-bodhi-rootfs-debian
 bodhi's Debian rootfs, prepared specifically for Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
 
-* [Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz)
 
-Also packaged as a raw disk image (see below instructions about growing the partition after you write the image to an SD card):
+## Rationale
 
-* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
+User 'bodhi' at http://forum.doozan.com has prepared a Debian rootfs tarball for use with many small ARM machines (see this thread: http://forum.doozan.com/read.php?2,12096).
 
-If you can't grow the partition after writing the SD card (e.g. Windows and Mac users), here's the above packaged as a 4GB raw disk image:
+However, his release still requires a few additional steps in order to prepare it for the Pogoplug.
 
-* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
+This github repository aims to provide versions of his rootfs (and disk images) which are fully ready to be used with Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
 
-* [md5sums](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/md5sums)
+
+## Debian `stretch` release
+
+Changes to the `jessie` rootfs:
+- Upgraded to Debian `stretch`
+- Switched from openssh to dropbear
+
 
 ## Issues with upgrading from `jessie` to `stretch`
 
@@ -32,13 +37,20 @@ Give root password for maintenance
 You can fix this by placing your SD card into a laptop and editing `/etc/fstab`.  Replace `/dev/root` with `/dev/mmcblk0p1` (if you boot from SD card).
 
 
-## Rationale
+## Debian `jessie` release (2015/11/10)
 
-User 'bodhi' at http://forum.doozan.com has prepared a Debian rootfs tarball for use with many small ARM machines (see this thread: http://forum.doozan.com/read.php?2,12096).
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-rootfs.tar.gz)
 
-However, his release still requires a few additional steps in order to prepare it for the Pogoplug.
+Also packaged as a raw disk image (see below instructions about growing the partition after you write the image to an SD card):
 
-This github repository aims to provide versions of his rootfs (and disk images) which are fully ready to be used with Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.dd.gz)
+
+If you can't grow the partition after writing the SD card (e.g. Windows and Mac users), here's the above packaged as a 4GB raw disk image:
+
+* [Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/Debian-jessie-3.18.5-pogoplug-v4-20151110-disk-image.4GB.img.zip)
+
+* [md5sums](https://github.com/pepaslabs/pogoplug-v4-bodhi-rootfs-debian/releases/download/jessie-3.18.5-20151110/md5sums)
+
 
 ## Linux users: Using the disk image
 
