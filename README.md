@@ -11,13 +11,6 @@ However, his release still requires a few additional steps in order to prepare i
 This github repository aims to provide versions of his rootfs (and disk images) which are fully ready to be used with Pogoplug V4 devices (Pogoplug Mobile and Pogoplug Series 4).
 
 
-## Debian `stretch` release
-
-Changes to the `jessie` rootfs:
-- Upgraded to Debian `stretch`
-- Switched from openssh to dropbear
-
-
 ## Issues with upgrading from `jessie` to `stretch`
 
 If you `apt-get dist-upgrade` from `jessie` to `stretch` and it "bricks" your 'plug, it is probably due to `fsck` not being able to find `/dev/root`:
